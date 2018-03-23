@@ -11,20 +11,20 @@
 
 namespace Chinaobject\Dingtalk;
 
-use Chinaobject\Dingtalk\Tools\Initialize;
+use Chinaobject\Dingtalk\Tools\DingConfig;
 
 class DingtalkService
 {
 
     /**
-     * @var Initialize
+     * @var config
      * It provide the basic ability of dingtalk
      */
-    public $initialize;
+    public $config;
 
-    public function __construct(Initialize $initialize)
+    public function __construct(DingConfig $config)
     {
-        $this->initialize = $initialize;
+        $this->config = $config;
     }
 
     /**
@@ -177,7 +177,7 @@ class DingtalkService
      */
     public function smartwork()
     {
-        return new Tools\Smartwork\Smartwork($this->initialize);
+        return new Tools\Smartwork\Smartwork($this->config);
     }
 
     /**

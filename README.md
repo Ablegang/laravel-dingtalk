@@ -1,5 +1,9 @@
 # laravel-dingtalk
 This is a dingtalk extension of laravel.
 
-# TODO
-- documents
+## 审批提交
+```
+Dingtalk::smartwork()->createApproval(new ApprovalModel([
+    ''
+]));
+```

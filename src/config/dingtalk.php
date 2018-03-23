@@ -21,4 +21,8 @@ return [
     'channel_secret' => env('DINGTALK_CHANNEL_SECRET',''),
 
     'expire_minutes' => env('DINGTALK_EXPIRE_MINUTES',120),
+
+    'open_api' => env('OPEN_API_URL','https://oapi.dingtalk.com/'),
+
+    'eco_api' => env('ECO_API_URL','https://eco.taobao.com/router/rest'),
 ];

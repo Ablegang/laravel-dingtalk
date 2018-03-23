@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | Initialize.php
+// | DingConfig.php
 // +----------------------------------------------------------------------
 // | Description: 钉钉服务类
 // +----------------------------------------------------------------------
@@ -14,7 +14,7 @@ namespace Chinaobject\Dingtalk\Tools;
 use Chinaobject\Dingtalk\Exceptions\AccessTokenInitException;
 use Illuminate\Support\Facades\Cache;
 
-class Initialize
+class DingConfig
 {
 
     /**
@@ -43,7 +43,17 @@ class Initialize
     private $minutes;
 
     /**
-     * Initialize constructor.
+     * @var The dingtalk api url.
+     */
+    private $open_api;
+
+    /**
+     * @var The eco api url.
+     */
+    private $eco_api;
+
+    /**
+     * DingConfig constructor.
      * It will initialize the configure of dingtalk.
      */
     public function __construct()
@@ -53,6 +63,8 @@ class Initialize
         $this->sso_secret = config('dingtalk.sso_secret');
         $this->channel_secret = config('dingtalk.channel_secret');
         $this->minutes = config('dingtalk.expire_minutes');
+        $this->eco_api = config('dingtalk.eco_api');
+        $this->open_api = config('dingtalk.open_api');
     }
 
     /**
@@ -123,5 +135,11 @@ class Initialize
     public function getChannelSecret()
     {
         return $this->channel_secret;
+    }
+
+
+    public function getBaseApi($is_ding = true)
+    {
+        return $is_ding ? $this->open_api : $this->eco_api;
     }
 }

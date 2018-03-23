@@ -1,17 +1,17 @@
 <?php
 // +----------------------------------------------------------------------
-// | AccessTokenInitException.php
+// | RequestErrorException.php
 // +----------------------------------------------------------------------
 // | Description: 
 // +----------------------------------------------------------------------
-// | Time: 2018/3/26 下午6:49
+// | Time: 2018/3/27 下午2:30
 // +----------------------------------------------------------------------
 // | Author: Object,半醒的狐狸<2252390865@qq.com>
 // +----------------------------------------------------------------------
 
 namespace Chinaobject\Dingtalk\Exceptions;
 
-class AccessTokenInitException extends BaseException
+class RequestErrorException extends BaseException
 {
 
 }

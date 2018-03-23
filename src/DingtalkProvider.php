@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | ServiceProvider.php
+// | DingtalkProvider.php
 // +----------------------------------------------------------------------
 // | Description: 
 // +----------------------------------------------------------------------
@@ -11,7 +11,7 @@
 
 namespace Chinaobject\Dingtalk;
 
-use Chinaobject\Dingtalk\Tools\Initialize;
+use Chinaobject\Dingtalk\Tools\DingConfig;
 use Illuminate\Support\ServiceProvider;
 
 class DingtalkProvider extends ServiceProvider
@@ -23,7 +23,7 @@ class DingtalkProvider extends ServiceProvider
         );
 
         $this->app->singleton('DingtalkService', function () {
-            return new DingtalkService(new Initialize());
+            return new DingtalkService(new DingConfig());
         });
     }
 

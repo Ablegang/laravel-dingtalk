@@ -28,6 +28,6 @@ if (function_exists('jsonSend')){
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
         $data = curl_exec($ch);
         curl_close($ch);
-        return json_decode($data);
+        return json_decode($data,true);
     }
 }
