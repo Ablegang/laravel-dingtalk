@@ -1,0 +1,40 @@
+{
+  "name": "chinaobject/laravel-dingtalk",
+  "description": "This is a dingtalk extension of laravel,now it is work in the internal development scene of the enterprise",
+  "keywords": ["laravel", "dingtalk", "chinaobject"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "china object",
+      "email": "lpg525@icloud.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "laravel/framework": "5.5.*",
+    'chinaobject/laravel-pre-request':'1.1.1'
+  },
+  "autoload": {
+    "psr-4": {
+      "ChinaObject\\Dingtalk\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Chinaobject\\Dingtalk\\DingtalkProvider"
+      ],
+      "aliases": {
+        "Dingtalk": "Chinaobject\\Dingtalk\\Facade\\Dingtalk"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "require-dev": {
+    "php": ">=7.0",
+    "laravel/framework": "5.5.*"
+  }
+}
