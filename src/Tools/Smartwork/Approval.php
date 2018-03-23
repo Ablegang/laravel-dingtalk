@@ -9,7 +9,7 @@
 // | Author: Object,半醒的狐狸<2252390865@qq.com>
 // +----------------------------------------------------------------------
 
-namespace ChinaObject\Dingtalk\Tools\Smartwork;
+namespace Chinaobject\Dingtalk\Tools\Smartwork;
 
 trait Approval
 {

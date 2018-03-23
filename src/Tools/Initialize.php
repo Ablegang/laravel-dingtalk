@@ -9,9 +9,9 @@
 // | Author: Object,半醒的狐狸<2252390865@qq.com>
 // +----------------------------------------------------------------------
 
-namespace ChinaObject\Dingtalk\Tools;
+namespace Chinaobject\Dingtalk\Tools;
 
-use ChinaObject\Dingtalk\Exceptions\AccessTokenInitException;
+use Chinaobject\Dingtalk\Exceptions\AccessTokenInitException;
 use Illuminate\Support\Facades\Cache;
 
 class Initialize

@@ -9,9 +9,9 @@
 // | Author: Object,半醒的狐狸<2252390865@qq.com>
 // +----------------------------------------------------------------------
 
-namespace ChinaObject\Dingtalk;
+namespace Chinaobject\Dingtalk;
 
-use ChinaObject\Dingtalk\Tools\Initialize;
+use Chinaobject\Dingtalk\Tools\Initialize;
 
 class DingtalkService
 {
