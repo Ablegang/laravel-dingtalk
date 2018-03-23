@@ -19,7 +19,7 @@ class DingtalkProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            './config/dingtalk.php'
+            realpath(__DIR__.'/../../config/dingtalk.php'),'dingtalk'
         );
 
         $this->app->singleton('DingtalkService', function () {
@@ -30,7 +30,7 @@ class DingtalkProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            './config/dingtalk.php' => config_path('dingtalk.php')
+            realpath(__DIR__.'/../../config/dingtalk.php') => config_path('dingtalk.php')
         ]);
     }
 }
