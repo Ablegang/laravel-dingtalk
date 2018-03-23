@@ -18,10 +18,6 @@ class DingtalkProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->mergeConfigFrom(
-            realpath(__DIR__.'/../../config/dingtalk.php'),'dingtalk'
-        );
-
         $this->app->singleton('DingtalkService', function () {
             return new DingtalkService(new DingConfig());
         });
