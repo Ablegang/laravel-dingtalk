@@ -1,6 +1,6 @@
 {
   "name": "chinaobject/laravel-dingtalk",
-  "description": "This is a dingtalk extension of laravel,now it is work in the internal development scene of the enterprise",
+  "description": "This is a dingtalk extension of laravel",
   "keywords": ["laravel", "dingtalk", "chinaobject"],
   "license": "MIT",
   "authors": [
