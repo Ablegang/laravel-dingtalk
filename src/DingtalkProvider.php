@@ -25,8 +25,6 @@ class DingtalkProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->publishes([
-            realpath(__DIR__.'/../../config/dingtalk.php') => config_path('dingtalk.php')
-        ]);
+        $this->publishes([realpath(__DIR__.'/config/dingtalk.php') => config_path('dingtalk.php')]);
     }
 }

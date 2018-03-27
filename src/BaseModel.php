@@ -14,6 +14,7 @@ namespace Chinaobject\Dingtalk;
 use Chinaobject\Dingtalk\Exceptions\ParameterErrorException;
 use Chinaobject\Dingtalk\Exceptions\RequestErrorException;
 use Chinaobject\Dingtalk\Tools\DingConfig;
+use GuzzleHttp\Client;
 
 class BaseModel
 {
@@ -144,11 +145,24 @@ class BaseModel
     public function send()
     {
         $this->check();
-        info($this->api);
-        info($this->toArray());
-        $result = jsonSend($this->api, $this->toArray())['content'];
-        info($result);
-        throw_if(isset($result['error_response']), RequestErrorException::class, "400", "请求错误：{$result['sub_msg']}---{$result['sub_code']}");
+        $client = new Client();
+        $result = $client->request('POST',$this->api,[
+            'headers'=>[],
+            'form_params' =>$this->toArray()
+        ]);
+        $result = (string)$result->getBody();
+        $result_data = json_decode($result,true);
+        throw_unless(
+            $result_data,
+            RequestErrorException::class,
+            '400',
+            "请求错误：{$result}"
+        );
+
+        if (isset($result_data['error_response'])){
+            throw RequestErrorException(400,"请求错误：{$result_data['error_response']['msg']} 错误码：{$result_data['error_response']['code']}");
+        }
+
         return $result;
     }
 

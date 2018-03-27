@@ -12,7 +12,7 @@
 namespace Chinaobject\Dingtalk\Tools\Smartwork\Models;
 
 use Chinaobject\Dingtalk\BaseModel;
-
+use Chinaobject\Dingtalk\Exceptions\ParameterErrorException;
 class ApprovalModel extends BaseModel
 {
     protected $agent_id;
@@ -37,9 +37,10 @@ class ApprovalModel extends BaseModel
     public function check()
     {
         parent::check();
-        throw_if(!is_string($this->process_code),ParameterErrorException::class,'400',"参数错误：表单模板不能为空");
-        throw_if(!is_string($this->originator_user_id),ParameterErrorException::class,'400',"参数错误：发起人id不能为空");
-        throw_if(!is_int($this->dept_id),ParameterErrorException::class,'400',"参数错误：发起人所在部门id不能为空");
-        throw_if(!is_array($this->approvers),ParameterErrorException::class,'400',"参数错误：审批人user_id不能为空");
+        throw_if(is_null($this->process_code),ParameterErrorException::class,'400',"参数错误：表单模板不能为空");
+        throw_if(is_null($this->originator_user_id),ParameterErrorException::class,'400',"参数错误：发起人id不能为空");
+        throw_if(is_null($this->dept_id),ParameterErrorException::class,'400',"参数错误：发起人所在部门id不能为空");
+        throw_if(is_null($this->approvers),ParameterErrorException::class,'400',"参数错误：审批人user_id不能为空");
+        throw_if(is_null($this->form_component_values),ParameterErrorException::class,'400',"参数错误：表单不能为空");
     }
 }
